@@ -684,7 +684,7 @@ const initBridge = (w: any): void => {
                     if (this.readyState == 2) {
                       //TODO: Add progress event emission on native side
                       this.dispatchEvent(
-                        new ProgressEvent('progress', {
+                        new Event('progress', {
                           lengthComputable: true,
                           loaded: nativeResponse.data.length,
                           total: nativeResponse.data.length,
@@ -725,7 +725,7 @@ const initBridge = (w: any): void => {
                     this.responseURL = error.url;
                     this.readyState = 4;
                     this.dispatchEvent(
-                      new ProgressEvent('progress', {
+                      new Event('progress', {
                         lengthComputable: false,
                         loaded: 0,
                         total: 0,
@@ -746,7 +746,7 @@ const initBridge = (w: any): void => {
               this.responseURL = this._url;
               this.readyState = 4;
               this.dispatchEvent(
-                new ProgressEvent('progress', {
+                new Event('progress', {
                   lengthComputable: false,
                   loaded: 0,
                   total: 0,
